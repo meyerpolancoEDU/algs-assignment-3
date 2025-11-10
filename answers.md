@@ -20,6 +20,6 @@ Together, these imply the greedy algorithm is the optimal solution.
 
 2b) Let OPT(N) be the minimum number of coins needed to make N using the given denominations. If an optimal solution for N uses some first coin d (where d <= N), then the remaining amount N - d must itself be solved optimally; otherwise, replacing the remainder by a better solution would reduce the total coin count, contradicting optimality. Therefore OPT(N) = min over all d in D with d <= N of (1 + OPT(N - d)), with base case OPT(0) = 0. This proves the problem has optimal substructure.
 
-2c) Bottom-up algorithm: Create an array OPT[0...N] with OPT[0] = 0. For a from 1 to N: set OPT[a] to the minimum, over coins d in D with d <= a, of 1 + OPT[a - d] (if no coin applies for a, then a is not makeable). Optionally keep PREV[a] to reconstruct the coins. If no coin applies for N, change is impossible; otherwise OPT[N] is the minimum number of coins.
+2c) Bottom-up algorithm: Create an array OPT[0...N] with OPT[0] = 0. For a from 1 to N: set OPT[a] to the minimum, over coins d in D with d <= a, of 1 + OPT[a - d] (if no coin applies for a, then a is not makeable). If no coin applies for N, change is impossible; otherwise OPT[N] is the minimum number of coins.
 
-Work and span: Work is O(n). Span is O(n).
+Work is O(n). Span is O(n).
